@@ -1,0 +1,52 @@
+USE_CAMERA_STUB := true
+
+# inherit from the proprietary version
+-include vendor/samsung/sp8810/BoardConfigVendor.mk
+
+TARGET_NO_BOOTLOADER := true
+TARGET_BOARD_PLATFORM := sc8810
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_BOOTLOADER_BOARD_NAME := sp8810
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a
+TARGET_ARCH_VARIANT_CPU := cortex-a5
+TARGET_CPU_VARIANT := cortex-a5
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 2048
+
+BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 939524096
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 2172649472
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_PREBUILT_KERNEL := device/samsung/sp8810/kernel
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+BOARD_BOOT_DEVICE := /dev/block/mmcblk0p5
+BOARD_RECOVERY_DEVICE := /dev/block/mmcblk0p6
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p21
+BOARD_SYSTEM_FILESYSTEM := ext4
+BOARD_CACHE_DEVICE := /dev/block/mmcblk0p20
+BOARD_CACHE_FILESYSTEM := ext4
+BOARD_DATA_DEVICE := /dev/block/mmcblk0p25
+BOARD_DATA_FILESYSTEM := ext4
+TARGET_USERIMAGES_USE_EXT4 := true
+
+BOARD_LDPI_RECOVERY := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/sp8810/recovery/recovery_keys.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/sp8810/recovery/graphics.c
+BOARD_HAS_NO_MISC_PARTITION := true
+TARGET_RECOVERY_FSTAB := device/samsung/sp8810/recovery/recovery.fstab
+TARGET_RECOVERY_INITRC := device/samsung/sp8810/recovery/recovery.rc
+BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/dwc_otg.0/gadget/lun0/file"
+BOARD_SUPPRESS_EMMC_WIPE := true
+
+USE_OPENGL_RENDERER := true
